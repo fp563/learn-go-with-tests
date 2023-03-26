@@ -18,7 +18,7 @@ func TestArea(t *testing.T) {
 		t.Helper()
 		got := shape.Area()
 		if got != want {
-			t.Errorf("got %g want %g", got, want)
+			t.Errorf("%#v got %.2f want %.2f", shape, got, want)
 		}
 	}
 
