@@ -47,10 +47,10 @@ Go!`
 }
 
 func TestCounfigurableSleeper(t *testing.T) {
-	sleepTime := 5 * time.Second
+	sleepTime := 7 * time.Second
 
 	spyTime := &SpyTime{}
-	sleeper := ConfigureableSleeper{duration: sleepTime, sleep: spyTime.Sleep}
+	sleeper := ConfigurableSleeper{sleepDuration: sleepTime, sleep: spyTime.Sleep}
 	sleeper.Sleep()
 
 	if spyTime.durationSlept != sleepTime {
