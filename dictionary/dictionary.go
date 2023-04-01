@@ -23,17 +23,12 @@ func (d Dictionary) Search(word string) (string, error) {
 }
 
 func (d Dictionary) Add(word, definition string) error {
-	_, err := d.Search(word)
-
-	switch err {
-	case ErrNotFound:
-		d[word] = definition
-	case nil:
+	_, exists := d[word]
+	if exists {
 		return ErrWordExists
-	default:
-		return err
 	}
 
+	d[word] = definition
 	return nil
 }
 
